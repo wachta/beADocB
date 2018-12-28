@@ -2,6 +2,7 @@ package at.fh.ima.swengs.beadoc.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
@@ -31,12 +32,16 @@ public class User {
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
   private Date dayOfBirth;
 
+  @OneToMany(mappedBy = "patient")
   private Set<Appointment> appointments;
 
+  @ManyToMany(mappedBy = "consumers")
   private Set<Medicine> medicines;
 
+  @OneToOne
   private Document profilePicture;
 
+  @OneToMany(mappedBy = "uploadedBy")
   private Set<Document> medicinePictures;
 
   private boolean admin;
@@ -45,6 +50,10 @@ public class User {
 
   @Enumerated(EnumType.STRING)
   private Gender gender;
+
+  @Version
+  @JsonIgnore
+  private long version;
 
   public Set<Appointment> getAppointments() {
     return appointments;
