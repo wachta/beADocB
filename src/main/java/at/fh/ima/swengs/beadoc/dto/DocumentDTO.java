@@ -1,6 +1,7 @@
 package at.fh.ima.swengs.beadoc.dto;
 
 import java.util.Date;
+import java.util.Set;
 
 public class DocumentDTO {
 
@@ -8,7 +9,7 @@ public class DocumentDTO {
   private String name;
   private String description;
   private String fileName;
-  private long[] content;
+  private String content;
   private String contentType;
   private Date created;
   private Long user;
@@ -48,11 +49,11 @@ public class DocumentDTO {
     this.fileName = fileName;
   }
 
-  public long[] getContent() {
+  public String getContent() {
     return content;
   }
 
-  public void setContent(long[] content) {
+  public void setContent(String content) {
     this.content = content;
   }
 

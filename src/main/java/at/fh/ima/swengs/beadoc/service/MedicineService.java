@@ -15,5 +15,13 @@ public class MedicineService {
 
     public Optional<Medicine> findById(Long id) { return medicineRepository.findById(id); }
 
+  public Medicine getMedicine(Long dto){
+    if(dto!=null) {
+      Medicine entity = medicineRepository.findById(dto).get();
+      return entity;
+    }
+    return null;
+  }
+
     public Medicine save(Medicine entity) { return medicineRepository.save(entity); }
 }
