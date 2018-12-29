@@ -52,7 +52,7 @@ public class DocumentFacade {
       dto.setUser(entity.getUser().getId());
     }
     if (entity.getMedicine() != null) {
-      //dto.setMedicine(entity.getMedicine().getId());
+      dto.setMedicine(entity.getMedicine().getId());
     }
     dto.setUserPicture(entity.isUserPicture());
     if (entity.getUploadedBy() != null) {

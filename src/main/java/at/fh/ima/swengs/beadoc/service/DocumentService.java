@@ -5,6 +5,7 @@ import at.fh.ima.swengs.beadoc.model.DocumentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
@@ -34,6 +35,12 @@ public class DocumentService {
       return entity;
     }
     return null;
+  }
+
+  public Set<Document> getDocuments(Set<Long> dtos){
+    Set<Document> entities = new HashSet<>();
+    dtos.forEach((dto)->entities.add(documentRepository.findById(dto).get()));
+    return entities;
   }
 
 }

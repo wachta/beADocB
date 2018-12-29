@@ -5,7 +5,9 @@ import at.fh.ima.swengs.beadoc.model.AppointmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.Optional;
+import java.util.Set;
 
 @Service()
 public class AppointmentService {
@@ -17,5 +19,9 @@ public class AppointmentService {
 
     public Appointment save(Appointment entity) {return appointmentRepository.save(entity); }
 
-
+    public Set<Appointment> getAppointments(Set<Long> dtos){
+      Set<Appointment> entities = new HashSet<>();
+      dtos.forEach((dto)->entities.add(appointmentRepository.findById(dto).get()));
+      return entities;
+    }
 }

@@ -13,19 +13,19 @@ public class ActorController {
     @Autowired
     private ActorFacade actorFacade;
 
-    @GetMapping("/dto/actors/{id}")
-    ActorDTO getById(@PathVariable Long id) {
-        return actorFacade.getById(id);
-    }
+  @GetMapping("/dto/actors/{id}")
+  ActorDTO getById(@PathVariable Long id) {
+    return actorFacade.getById(id);
+  }
 
-    @PostMapping("/dto/actors")
-    ActorDTO create(@RequestBody @Valid ActorDTO dto) {
-        return actorFacade.create(dto);
-    }
+  @PostMapping("/dto/actors")
+  ActorDTO create(@RequestBody @Valid ActorDTO dto) {
+    return actorFacade.create(dto);
+  }
 
-    @PutMapping("/dto/actors/{id}")
-    ActorDTO update(@RequestBody @Valid ActorDTO dto, @PathVariable Long id) {
-        return actorFacade.update(id, dto);
-    }
+  @PutMapping("/dto/actors/{id}")
+  ActorDTO update(@RequestBody @Valid ActorDTO dto, @PathVariable Long id) {
+    return actorFacade.update(id, dto);
+  }
 
 }

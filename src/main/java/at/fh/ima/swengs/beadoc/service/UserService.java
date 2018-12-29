@@ -17,14 +17,6 @@ public class UserService {
 
   public Optional<User> findById(long id) { return userRepository.findById(id); }
 
-  public User getUser(Long dto){
-    if(dto!=null) {
-      User entity = userRepository.findById(dto).get();
-      return entity;
-    }
-    return null;
-  }
-
   public User save(User entity) { return userRepository.save(entity); }
 
   public User getUser(Long dto){
