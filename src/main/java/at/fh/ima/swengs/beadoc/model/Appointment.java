@@ -79,15 +79,11 @@ public class Appointment {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Appointment that = (Appointment) o;
-        return id == that.id &&
-                appointmentTime == that.appointmentTime &&
-                fixed == that.fixed &&
-                Objects.equals(appointmentDate, that.appointmentDate) &&
-                Objects.equals(patient, that.patient);
+        return id == that.id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, appointmentDate, appointmentTime, fixed, patient);
+        return Objects.hash(id);
     }
 }

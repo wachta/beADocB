@@ -17,4 +17,12 @@ public class DocumentService {
 
   public Document save(Document entity) { return documentRepository.save(entity); }
 
+  public Document getDocument(Long dto){
+    if(dto!=null) {
+      Document entity = documentRepository.findById(dto).get();
+      return entity;
+    }
+    return null;
+  }
+
 }

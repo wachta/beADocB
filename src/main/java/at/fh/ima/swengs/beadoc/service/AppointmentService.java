@@ -16,4 +16,6 @@ public class AppointmentService {
     public Optional<Appointment> findById(long id) { return appointmentRepository.findById(id); }
 
     public Appointment save(Appointment entity) {return appointmentRepository.save(entity); }
+
+
 }
