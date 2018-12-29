@@ -31,14 +31,18 @@ public class Document {
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
   private Date created;
 
+  //wenn es kein ProfilBild ist => null
   @OneToOne(mappedBy = "profilePicture")
   private User user;
 
+  //wenn es kein Verpackungsbild ist => null
   @OneToOne(mappedBy = "picture")
   private Medicine medicine;
 
+  //bestimmt ob es ein ProfilBild, oder ein Verpackungsbild ist
   private boolean userPicture;
 
+  // nur wenn es ein Foto einer Medizinverpackung ist, die ein Patient hochgeladen hat
   @ManyToOne
   private User uploadedBy;
 
